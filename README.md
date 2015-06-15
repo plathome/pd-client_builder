@@ -45,6 +45,8 @@ $ make docker_run
 $ ls deb/*.deb
 ```
 
+NOTE: `sudo make docker_run` => `deb` dir is `/deb` (root user's `$HOME` is `/` :-p)
+
 You can remove `deb/` if get `*.deb` files.
 
 Remove docker image: `$ make docker_rmi`
