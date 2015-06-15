@@ -1,0 +1,16 @@
+Source: pd-emitter-plugins-all
+Section: misc
+Priority: optional
+Maintainer: Kohei MATSUSHITA <ma2shita@plathome.co.jp>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://pd.plathome.com/emitter
+Vcs-Git: https://github.com/plathome/pd-client_builder.git
+Vcs-Browser: https://github.com/plathome/pd-client_builder
+
+Package: pd-emitter-plugins-all
+Architecture: all
+Depends: pd-emitter-plugin-pdex
+Description: All-In-One plugins for PD Emitter
+ All-In-One plugins for PD Emitter
+

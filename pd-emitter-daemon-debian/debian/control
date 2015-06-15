@@ -1,0 +1,18 @@
+Source: pd-emitter-daemon
+Section: misc
+Priority: optional
+Maintainer: Kohei MATSUSHITA <ma2shita@plathome.co.jp>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://pd.plathome.com/emitter
+Vcs-Git: https://github.com/plathome/pd-client_builder.git
+Vcs-Browser: https://github.com/plathome/pd-client_builder
+
+Package: pd-emitter-daemon
+Architecture: all
+Pre-Depends: supervisor
+Depends: pd-emitter
+Description: Daemonized package for PD Emitter
+ PD Emitter does not have daemonized mechanism.
+ This package recommend for its environment.
+

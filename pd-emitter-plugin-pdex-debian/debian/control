@@ -1,0 +1,17 @@
+Source: pd-emitter-plugin-pdex
+Section: misc
+Priority: optional
+Maintainer: Kohei MATSUSHITA <ma2shita@plathome.co.jp>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://pd.plathome.com/emitter
+Vcs-Git: https://github.com/plathome/pd-client_builder.git
+Vcs-Browser: https://github.com/plathome/pd-client_builder
+
+Package: pd-emitter-plugin-pdex
+Architecture: any
+Pre-Depends: supervisor
+Depends: pd-emitter
+Description: PD Exchange plugin for PD Emitter
+ PD Exchange plugin for PD Emitter
+

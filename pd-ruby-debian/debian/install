@@ -1,0 +1,10 @@
+ruby/bin/*         opt/pd/ruby/bin/
+ruby/completions/* opt/pd/ruby/completions/
+ruby/libexec/*     opt/pd/ruby/libexec/
+ruby/rbenv.d/*     opt/pd/ruby/rbenv.d/
+ruby/share/*       opt/pd/ruby/share/
+ruby/shims/*       opt/pd/ruby/shims/
+ruby/src/*         opt/pd/ruby/src/
+ruby/test/*        opt/pd/ruby/test/
+ruby/versions/*    opt/pd/ruby/versions/
+

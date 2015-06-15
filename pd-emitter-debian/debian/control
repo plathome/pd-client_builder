@@ -1,0 +1,21 @@
+Source: pd-emitter
+Section: misc
+Priority: optional
+Maintainer: Kohei MATSUSHITA <ma2shita@plathome.co.jp>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://pd.plathome.com/emitter
+Vcs-Git: https://github.com/plathome/pd-client_builder.git
+Vcs-Browser: https://github.com/plathome/pd-client_builder
+
+Package: pd-emitter
+Recommends: pd-emitter-daemon
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, pd-ruby
+Description: IoT Network Stack / Data transmission support daemon/tools
+ It is a feature of the IoT network "IoT devices are many, the line is
+ unstable, and requires two-way communication" is also resolved to
+ addition to these issues of "difficult system changes after the start
+ of operation", IoT safety and I will surely realize the device and
+ application data exchange.
+

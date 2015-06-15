@@ -1,0 +1,16 @@
+Source: pd-ruby
+Section: misc
+Priority: optional
+Maintainer: Kohei MATSUSHITA <ma2shita@plathome.co.jp>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://pd.plathome.com/emitter
+Vcs-Git: https://github.com/plathome/pd-client_builder.git
+Vcs-Browser: https://github.com/plathome/pd-client_builder
+
+Package: pd-ruby
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Ruby package for Plat'Data Processing
+ This is Ruby All in one.
+

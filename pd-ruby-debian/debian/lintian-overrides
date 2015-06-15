@@ -1,0 +1,8 @@
+pd-ruby: script-not-executable       opt/pd/ruby/test/*
+pd-ruby: unusual-interpreter         opt/pd/ruby/test/*
+pd-ruby: wrong-path-for-interpreter  opt/pd/ruby/versions/*
+pd-ruby: ruby-script-but-no-ruby-dep opt/pd/ruby/versions/*
+pd-ruby: embedded-javascript-library opt/pd/ruby/versions/2.2.2/lib/ruby/2.2.0/rdoc/generator/template/darkfish/js/jquery.js
+pd-ruby: package-contains-vcs-control-file opt/pd/ruby/versions/2.2.2/lib/ruby/gems/2.2.0/gems/power_assert-0.2.2/.gitignore
+pd-ruby: extra-license-file opt/pd/ruby/versions/2.2.2/lib/ruby/gems/2.2.0/gems/power_assert-0.2.2/COPYING
+pd-ruby: extra-license-file opt/pd/ruby/versions/2.2.2/lib/ruby/gems/2.2.0/gems/test-unit-3.0.8/COPYING
