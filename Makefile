@@ -1,6 +1,7 @@
 # NOTE: overwrite var: e.g.) make -e TAG=foo:bar docker_build
 ARCH=i386
 TAG=pd-client_builder:$(ARCH)
+PWD=$(shell pwd)
 
 .PHONY: all
 all: ;
@@ -21,7 +22,7 @@ docker_build:
 
 .PHONY: docker_run
 docker_run:
-	docker run --rm --privileged=true -v ${PWD}/deb:/tmp/pd-client_builder/deb $(TAG)
+	docker run --rm --privileged=true -v $(PWD):/tmp/pd-client_builder $(TAG)
 
 .PHONY: docker_rmi
 docker_rmi:
