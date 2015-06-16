@@ -1,3 +1,9 @@
+pd-emitter (0.0.6-1) trusty; urgency=medium
+
+  * Update upstream
+
+ -- Kohei MA2SHITA <ma2shita@plathome.co.jp>  Tue, 16 Jun 2015 15:04:01 +0900
+
 pd-emitter (0.0.5-1nmu1) unstable; urgency=low
 
   * Initial release.
