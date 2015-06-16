@@ -1,12 +1,10 @@
 FROM plathomepd/debian32:wheezy
 MAINTAINER Kohei MATSUSHITA <ma2shita@plathome.co.jp>
 
-ENV _BUILD_ROOT /tmp/pd-client_builder
-
-COPY . ${_BUILD_ROOT}
-
+COPY Makefile /tmp/pd-client_builder/
+COPY Rakefile /tmp/pd-client_builder/
 RUN apt-get update && apt-get install make
-WORKDIR ${_BUILD_ROOT}
-RUN make setup
+WORKDIR /tmp/pd-client_builder/
+RUN make setup && rake1.9.1 ~/.devscripts && rake1.9.1 ~/.lintian/profiles/ignore-opt-dir/main.profile
 
 CMD ["rake1.9.1", "all"]
