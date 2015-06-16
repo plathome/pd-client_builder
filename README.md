@@ -52,6 +52,14 @@ You can remove `deb/` if get `*.deb` files.
 Remove docker image: `$ make docker_rmi`
 
 
+NOTE: Update Upstream package
+-----------------------------
+
+Edit:
+
+* Rakefile
+* `dch -v UPSTREAM_VERSION+nmu1 "RELEASE_NOTE" ; dch -r ""`
+
 NOTE: Initial dh\_make
 ----------------------
 
