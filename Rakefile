@@ -2,7 +2,7 @@ PD_ROOT = "/opt/pd"
 RB_VERSION = "2.2.2"
 PACKAGES = {
   "pd-ruby"                => RB_VERSION,
-  "pd-emitter"             => "0.0.7",
+  "pd-emitter"             => "0.0.8",
   "pd-emitter-daemon"      => "0.0.1",
   "pd-emitter-plugins-all" => "0.0.1",
   "pd-emitter-plugin-pdex" => "1.0.0",
@@ -59,7 +59,7 @@ file "build/pd-cli" => ["build/pd-ruby"] do |t|
   mount_overlayfs(t.prerequisites[0], t.name, PD_ROOT) do
     sh "git clone --depth 1 --branch #{PACKAGES['pd-cli']} https://github.com/plathome/pd-cli.git #{PD_ROOT}/cli"
     chdir("#{PD_ROOT}/cli") {
-      sh "#{BUNDLE} install --without development --jobs 4"
+      sh "#{BUNDLE} install --path vendor/bundle --without development test --jobs 4"
     }
   end
 end
@@ -70,7 +70,7 @@ file "build/pd-emitter" => ["build/pd-ruby"] do |t|
   mount_overlayfs(t.prerequisites[0], t.name, PD_ROOT) do
     sh "git clone --depth 1 --branch #{PACKAGES['pd-emitter']} https://github.com/plathome/pd-emitter.git #{PD_ROOT}/emitter"
     chdir("#{PD_ROOT}/emitter") {
-      sh "#{BUNDLE} install --without development --jobs 4"
+      sh "#{BUNDLE} install --path vendor/bundle --without development test --jobs 4"
     }
   end
 end
