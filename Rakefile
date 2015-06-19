@@ -1,18 +1,18 @@
 PD_ROOT = "/opt/pd"
 RB_VERSION = "2.2.2"
 PACKAGES = {
-  "pd-ruby" => "2.2.2",
-  "pd-emitter" => "0.0.6",
-  "pd-emitter-daemon" => "0.0.1",
+  "pd-ruby"                => RB_VERSION,
+  "pd-emitter"             => "0.0.7",
+  "pd-emitter-daemon"      => "0.0.1",
   "pd-emitter-plugins-all" => "0.0.1",
   "pd-emitter-plugin-pdex" => "1.0.0",
-}
-CORE_INCLUDE_PACKAGES = {
-  "fluent-plugin-in_unix_unimsg" => "0.0.2"
+  "pd-cli"                 => "1.0.1",
 }
 
 require "tmpdir"
 RBENV_ROOT = "#{PD_ROOT}/ruby"
+GEM    = "#{RBENV_ROOT}/versions/#{RB_VERSION}/bin/gem"
+BUNDLE = "#{RBENV_ROOT}/versions/#{RB_VERSION}/bin/bundle"
 
 def mount_overlayfs(lower, upper, mountpoint)
   sh "mount -t overlayfs -o lowerdir=#{lower},upperdir=#{upper} overlayfs #{mountpoint}"
@@ -47,22 +47,31 @@ file "build/pd-ruby" => [PD_ROOT] do |t|
       sh "PREFIX=$(rbenv root) #{tmp}/install.sh"
       sh "rbenv install #{RB_VERSION}"
       sh "echo '#{RB_VERSION}' > $(rbenv root)/version"
-      gem = "#{RBENV_ROOT}/versions/#{RB_VERSION}/bin/gem"
-      sh "#{gem} update --no-document"
+      sh "#{GEM} update --no-document"
+      sh "#{GEM} install bundler specific_install --no-rdoc --no-ri"
     end
   }
+end
+
+directory "build/pd-cli"
+desc "build pd-cli"
+file "build/pd-cli" => ["build/pd-ruby"] do |t|
+  mount_overlayfs(t.prerequisites[0], t.name, PD_ROOT) do
+    sh "git clone --depth 1 --branch #{PACKAGES['pd-cli']} https://github.com/plathome/pd-cli.git #{PD_ROOT}/cli"
+    chdir("#{PD_ROOT}/cli") {
+      sh "#{BUNDLE} install --without development --jobs 4"
+    }
+  end
 end
 
 directory "build/pd-emitter"
 desc "build pd-emitter"
 file "build/pd-emitter" => ["build/pd-ruby"] do |t|
   mount_overlayfs(t.prerequisites[0], t.name, PD_ROOT) do
-    gem = "#{RBENV_ROOT}/versions/#{RB_VERSION}/bin/gem"
-    sh "#{gem} install fluentd specific_install --no-ri --no-rdoc"
-    CORE_INCLUDE_PACKAGES.each {|k, v|
-      sh "#{gem} specific_install -l https://github.com/plathome/#{k}.git -b #{v}"
-    }
     sh "git clone --depth 1 --branch #{PACKAGES['pd-emitter']} https://github.com/plathome/pd-emitter.git #{PD_ROOT}/emitter"
+    chdir("#{PD_ROOT}/emitter") {
+      sh "#{BUNDLE} install --without development --jobs 4"
+    }
   end
 end
 
@@ -107,10 +116,9 @@ directory "build/pd-emitter-plugin-pdex"
 desc "build pd-emitter-plugin-pdex"
 file "build/pd-emitter-plugin-pdex" => ["cache/pd-emitter"] do |t|
   mount_overlayfs(t.prerequisites[0], t.name, PD_ROOT) do
-    gem = "#{RBENV_ROOT}/versions/#{RB_VERSION}/bin/gem"
-    gemdir = `#{gem} environment gemdir`.strip
+    sh "#{GEM} specific_install -l https://ssl.plathome.co.jp/git/git/pd/pd-emitter-plugin-pdex.git -b #{PACKAGES['pd-emitter-plugin-pdex']}"
+    gemdir = `#{GEM} environment gemdir`.strip
     plugin_root = "#{gemdir}/gems/pd-emitter-plugin-pdex-#{PACKAGES['pd-emitter-plugin-pdex']}"
-    sh "#{gem} specific_install -l https://ssl.plathome.co.jp/git/git/pd/pd-emitter-plugin-pdex.git -b #{PACKAGES['pd-emitter-plugin-pdex']}"
     cp "#{plugin_root}/share/pd_pdex_v1_ob.binstub",     "#{PD_ROOT}/emitter/bin/stubs/pd_pdex_v1_ob"
     cp "#{plugin_root}/share/pd_pdex_v1_ob.driver.conf", "#{PD_ROOT}/emitter/conf/driver.d/pd_pdex_v1_ob.conf"
   end
