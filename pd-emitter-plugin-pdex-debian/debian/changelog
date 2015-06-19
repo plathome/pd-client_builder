@@ -1,3 +1,9 @@
+pd-emitter-plugin-pdex (1.0.0-2) unstable; urgency=medium
+
+  * Kickout Pre-Depends
+
+ -- Kohei MATSUSHITA <ma2shita@plathome.co.jp>  Sat, 13 Jun 2015 13:23:45 +0000
+
 pd-emitter-plugin-pdex (1.0.0-1nmu1) unstable; urgency=low
 
   * Initial release.

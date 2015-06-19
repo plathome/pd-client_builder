@@ -10,7 +10,6 @@ Vcs-Browser: https://github.com/plathome/pd-client_builder
 
 Package: pd-emitter-plugin-pdex
 Architecture: any
-Pre-Depends: supervisor
 Depends: pd-emitter
 Description: PD Exchange plugin for PD Emitter
  PD Exchange plugin for PD Emitter
