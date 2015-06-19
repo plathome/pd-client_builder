@@ -7,4 +7,4 @@ RUN apt-get update && apt-get install make
 WORKDIR /tmp/pd-client_builder/
 RUN make setup && rake1.9.1 ~/.devscripts && rake1.9.1 ~/.lintian/profiles/ignore-opt-dir/main.profile
 
-CMD ["rake1.9.1", "all"]
+CMD ["rake1.9.1", "clean", "all"]
