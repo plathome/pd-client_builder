@@ -1,3 +1,9 @@
+pd-emitter-plugin-pdex (1.0.1-1) unstable; urgency=medium
+
+  * Kickout bundler from binstub
+
+ -- Kohei MATSUSHITA <ma2shita@plathome.co.jp>  Tue, 21 Jul 2015 01:58:22 +0000
+
 pd-emitter-plugin-pdex (1.0.0-2) unstable; urgency=medium
 
   * Kickout Pre-Depends

@@ -1,3 +1,9 @@
+pd-cli (1.0.2-1) unstable; urgency=medium
+
+  * bugfix
+
+ -- Kohei MATSUSHITA <ma2shita@plathome.co.jp>  Tue, 21 Jul 2015 13:25:11 +0900
+
 pd-cli (1.0.1-1nmu1) unstable; urgency=low
 
   * Initial release.

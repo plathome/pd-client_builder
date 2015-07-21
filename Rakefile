@@ -5,8 +5,8 @@ PACKAGES = {
   "pd-emitter"             => "0.0.9",
   "pd-emitter-daemon"      => "0.0.1",
   "pd-emitter-plugins-all" => "0.0.1",
-  "pd-emitter-plugin-pdex" => "1.0.0",
-  "pd-cli"                 => "1.0.1",
+  "pd-emitter-plugin-pdex" => "1.0.1",
+  "pd-cli"                 => "1.0.2",
 }
 
 require "tmpdir"
