@@ -1,3 +1,9 @@
+pd-cli (1.0.2-3) trusty; urgency=medium
+
+  * Bugfix in postinst
+
+ -- Ubuntu <ubuntu@ip-172-31-24-13.ap-northeast-1.compute.internal>  Tue, 21 Jul 2015 08:26:01 +0000
+
 pd-cli (1.0.2-2) trusty; urgency=medium
 
   * Change file permission
