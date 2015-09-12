@@ -1,3 +1,9 @@
+pd-emitter (0.0.10-2) trusty; urgency=medium
+
+  * Update component in Upstream
+
+ -- Kohei MA2SHITA <ma2shita@plathome.co.jp>  Sat, 12 Sep 2015 14:23:16 +0900
+
 pd-emitter (0.0.10-1) trusty; urgency=medium
 
   * Update upstream
